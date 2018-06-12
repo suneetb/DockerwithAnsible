@@ -1,0 +1,14 @@
+---
+- name: Login to Docker registry
+  docker_login:
+   username: "{{ docker_hub_username }}"
+   password: "{{ docker_hub_password }}"
+   email: "{{ docker_hub_email }}"
+- name: Creating Docker container from image on Docker Hub
+  docker_container:
+   name: myapachewebserver
+   image: sunnyf21/dockerwithansible:v1
+   state: started
+   exposed_ports: 
+     - 80
+   ports: "80:80"

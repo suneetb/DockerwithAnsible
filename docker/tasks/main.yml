@@ -1,0 +1,11 @@
+---
+- name: pull image
+  docker_image:
+    name: ubuntu
+    state: present
+
+- name: Create Container
+  docker_container:
+    name: ubu_cont
+    image: ubuntu
+    state: started
